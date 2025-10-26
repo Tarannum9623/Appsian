@@ -1,0 +1,12 @@
+# render.yaml
+services:
+  - type: web
+    name: project-manager-api
+    env: dotnet
+    buildCommand: dotnet publish -c Release -o output
+    startCommand: cd output && ./ProjectManager.API
+    envVars:
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+      - key: JWT_SECRET
+        generateValue: true
